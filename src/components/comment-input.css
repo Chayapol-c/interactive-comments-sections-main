@@ -1,0 +1,29 @@
+.comment-input-container {
+  background-color: var(--neutral-1);
+  border-radius: 0.25rem;
+  padding: 1rem;
+
+  .comment-input {
+    box-sizing: border-box;
+    background-color: var(--neutral-1);
+    border: 1px solid var(--neutral-3);
+    border-radius: 0.25rem;
+    padding: 1rem 1.5rem;
+    width: 100%;
+
+    color: var(--neutral-5);
+    resize: none;
+    height: 5rem;
+  }
+
+  .comment-input-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .current-user-img {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
