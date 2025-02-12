@@ -1,0 +1,24 @@
+.counter-container {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+
+  background-color: var(--neutral-3);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+
+  span {
+    color: var(--primary-blue);
+
+    font-weight: var(--font-weight-button);
+  }
+}
+
+.counter-button {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+
+  color: var(--primary-light-blue);
+  font-weight: var(--font-weight-button);
+}
