@@ -1,0 +1,28 @@
+.button-container {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  text-transform: capitalize;
+  font-weight: var(--font-weight-bold);
+  font-size: 1rem;
+}
+
+.button-primary {
+  color: var(--primary-blue);
+}
+
+.button-delete {
+  color: var(--primary-red);
+}
+
+.button-contain {
+  color: var(--neutral-3);
+  text-transform: uppercase;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.button-contain-primary {
+  background-color: var(--primary-blue);
+}
