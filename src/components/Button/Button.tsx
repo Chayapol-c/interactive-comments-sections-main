@@ -1,5 +1,5 @@
 import { memo, useMemo } from 'react';
-import './button.css';
+import './Button.css';
 
 export enum ButtonType {
   CONTAIN,

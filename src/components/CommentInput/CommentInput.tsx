@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import './comment-input.css';
+import './CommentInput.css';
 import Button from '../Button/Button';
 import IUser from '../../types/user';
 

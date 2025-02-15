@@ -1,4 +1,4 @@
-import './comment.css';
+import './Comment.css';
 import { memo, useCallback, useMemo } from 'react';
 import Counter from '../Counter/Counter';
 import iconReply from '../../images/icon-reply.svg';

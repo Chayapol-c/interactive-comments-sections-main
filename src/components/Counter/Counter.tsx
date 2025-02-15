@@ -1,4 +1,4 @@
-import './counter.css';
+import './Counter.css';
 import { memo } from 'react';
 import iconPlus from '../../images/icon-plus.svg';
 import iconMinus from '../../images/icon-minus.svg';
