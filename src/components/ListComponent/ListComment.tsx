@@ -10,8 +10,8 @@ export interface ListCommentProps {
   onClickReply: (id: number) => void;
   onEditComment?: () => void;
   onDeleteComment?: () => void;
-  onIncreaseScore: (id: number) => void;
-  onDecreaseScore: (id: number) => void;
+  onIncreaseScore: (id: number, username: string) => void;
+  onDecreaseScore: (id: number, username: string) => void;
 }
 
 const ListComment = ({

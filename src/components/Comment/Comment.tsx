@@ -14,8 +14,8 @@ export interface CommentProps {
   onClickReply: (id: number) => void;
   onEditComment?: () => void;
   onDeleteComment?: () => void;
-  onIncreaseScore: (id: number) => void;
-  onDecreaseScore: (id: number) => void;
+  onIncreaseScore: (id: number, username: string) => void;
+  onDecreaseScore: (id: number, username: string) => void;
 }
 
 const Comment = ({
@@ -73,8 +73,8 @@ const Comment = ({
           <div className="comment-actions">
             <Counter
               count={data.score}
-              onPlus={() => onIncreaseScore(data.id)}
-              onMinus={() => onDecreaseScore(data.id)}
+              onPlus={() => onIncreaseScore(data.id, data.user.username)}
+              onMinus={() => onDecreaseScore(data.id, data.user.username)}
             />
 
             {isCurrentUser ? (
