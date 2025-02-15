@@ -10,6 +10,7 @@ function App() {
   const copyCommentList: IComment[] = [...data.comments];
 
   const [commentList, setCommentList] = useState<IComment[]>(copyCommentList);
+  const [addReplyingUserName, setAddReplyingUserName] = useState<string>('');
 
   const currentUser = useMemo<IUser>(() => data.currentUser, []);
 
@@ -39,9 +40,14 @@ function App() {
     [commentList]
   );
 
-  const handleClickReply = useCallback((id: number) => {
-    console.log('reply', id);
-  }, []);
+  const handleClickReply = useCallback(
+    (username: string) => {
+      setAddReplyingUserName(username);
+    },
+    [setAddReplyingUserName]
+  );
+
+  const handleSendReply = useCallback(() => {}, []);
 
   const handleIncreaseScore = useCallback(
     (id: number, username: string) => {
@@ -66,6 +72,8 @@ function App() {
         <ListComment
           itemList={commentList}
           currentUser={currentUser}
+          addReplyingUserName={addReplyingUserName}
+          onSendReply={handleSendReply}
           onClickReply={handleClickReply}
           onDecreaseScore={handleDecreaseScore}
           onIncreaseScore={handleIncreaseScore}

@@ -2,6 +2,7 @@
   background-color: var(--neutral-1);
   border-radius: 0.25rem;
   padding: 1rem;
+  flex: 1;
 
   .comment-input {
     box-sizing: border-box;
@@ -26,4 +27,14 @@
       height: 2rem;
     }
   }
+}
+
+.reply-divider {
+  width: 1px;
+  border: 1px solid var(--neutral-4);
+  margin: 0 1rem 0 0;
+}
+
+.wrapper {
+  display: flex;
 }

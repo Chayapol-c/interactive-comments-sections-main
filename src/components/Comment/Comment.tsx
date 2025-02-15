@@ -11,7 +11,7 @@ export interface CommentProps {
   data: IBaseComment;
   replyingTo?: string;
   isCurrentUser: boolean;
-  onClickReply: (id: number) => void;
+  onClickReply: (username: string) => void;
   onEditComment?: () => void;
   onDeleteComment?: () => void;
   onIncreaseScore: (id: number, username: string) => void;
@@ -97,7 +97,7 @@ const Comment = ({
               <Button
                 label="reply"
                 startIcon={iconReply}
-                onClick={() => onClickReply(data.id)}
+                onClick={() => onClickReply(data.user.username)}
                 buttonType={ButtonType.TEXT}
               />
             )}

@@ -3,11 +3,14 @@ import IComment from '../../types/comment';
 import Comment from '../Comment/Comment';
 import IUser from '../../types/user';
 import './ListComment.css';
+import CommentInput from '../CommentInput/CommentInput';
 
 export interface ListCommentProps {
   itemList: IComment[];
   currentUser: IUser;
-  onClickReply: (id: number) => void;
+  addReplyingUserName: string;
+  onClickReply: (username: string) => void;
+  onSendReply: () => void;
   onEditComment?: () => void;
   onDeleteComment?: () => void;
   onIncreaseScore: (id: number, username: string) => void;
@@ -17,7 +20,9 @@ export interface ListCommentProps {
 const ListComment = ({
   itemList,
   currentUser,
+  addReplyingUserName,
   onClickReply,
+  onSendReply,
   onDeleteComment,
   onEditComment,
   onDecreaseScore,
@@ -42,6 +47,13 @@ const ListComment = ({
                   onEditComment={onEditComment}
                   onDeleteComment={onDeleteComment}
                 />
+                {addReplyingUserName === reply.user.username && (
+                  <CommentInput
+                    currentUser={currentUser}
+                    isReplying
+                    onSendComment={onSendReply}
+                  />
+                )}
               </>
             );
           });
@@ -58,6 +70,12 @@ const ListComment = ({
                 onEditComment={onEditComment}
                 onDeleteComment={onDeleteComment}
               />
+              {addReplyingUserName === item.user.username && (
+                <CommentInput
+                  currentUser={currentUser}
+                  onSendComment={onSendReply}
+                />
+              )}
             </>
           );
         }
