@@ -21,4 +21,5 @@
 
   color: var(--primary-light-blue);
   font-weight: var(--font-weight-button);
+  cursor: pointer;
 }

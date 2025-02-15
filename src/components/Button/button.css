@@ -5,6 +5,11 @@
   text-transform: capitalize;
   font-weight: var(--font-weight-bold);
   font-size: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
 }
 
 .button-primary {
