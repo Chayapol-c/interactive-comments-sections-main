@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import Comment from './Comment';
-import IComment from '../types/comment';
-import IUser from '../types/user';
+import IComment from '../../types/comment';
+import Comment from '../Comment/Comment';
+import IUser from '../../types/user';
 import './list-comment.css';
 
 export interface ListCommentProps {

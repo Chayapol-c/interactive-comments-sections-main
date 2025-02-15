@@ -1,7 +1,7 @@
 import { memo } from 'react';
-import IUser from '../types/user';
-import Button from './Button';
 import './comment-input.css';
+import Button from '../Button/Button';
+import IUser from '../../types/user';
 
 export interface CommentInputProps {
   currentUser: IUser;

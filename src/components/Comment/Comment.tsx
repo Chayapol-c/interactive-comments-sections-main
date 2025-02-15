@@ -1,11 +1,11 @@
 import './comment.css';
 import { memo, useCallback, useMemo } from 'react';
-import Counter from './Counter';
-import iconReply from '../images/icon-reply.svg';
-import iconEdit from '../images/icon-edit.svg';
-import iconDelete from '../images/icon-delete.svg';
-import Button, { ButtonStyle, ButtonType } from './Button';
-import IBaseComment from '../types/baseComment';
+import Counter from '../Counter/Counter';
+import iconReply from '../../images/icon-reply.svg';
+import iconEdit from '../../images/icon-edit.svg';
+import iconDelete from '../../images/icon-delete.svg';
+import Button, { ButtonStyle, ButtonType } from '../Button/Button';
+import IBaseComment from '../../types/baseComment';
 
 export interface CommentProps {
   data: IBaseComment;

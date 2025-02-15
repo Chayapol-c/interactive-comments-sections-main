@@ -1,7 +1,7 @@
 import './counter.css';
 import { memo } from 'react';
-import iconPlus from '../images/icon-plus.svg?url';
-import iconMinus from '../images/icon-minus.svg?url';
+import iconPlus from '../../images/icon-plus.svg';
+import iconMinus from '../../images/icon-minus.svg';
 
 export interface CounterProps {
   count: number;
