@@ -11,12 +11,12 @@ export enum ButtonStyle {
   DELETE,
 }
 
-export interface ButtonProps {
+export interface ButtonProps extends React.ComponentPropsWithoutRef<'button'> {
   label: string;
   startIcon?: string;
   buttonType?: ButtonType;
   buttonStyle?: ButtonStyle;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const Button = ({
@@ -24,6 +24,7 @@ const Button = ({
   startIcon,
   buttonType = ButtonType.CONTAIN,
   buttonStyle = ButtonStyle.PRIMARY,
+  type = 'button',
   onClick,
 }: ButtonProps) => {
   const buttonClassStyle = useMemo(() => {
@@ -42,6 +43,7 @@ const Button = ({
     case ButtonType.CONTAIN:
       return (
         <button
+          type={type}
           onClick={onClick}
           className="button-container button-contain button-contain-primary"
         >
@@ -52,6 +54,7 @@ const Button = ({
     case ButtonType.TEXT:
       return (
         <button
+          type={type}
           className={`button-container ${buttonClassStyle}`}
           onClick={onClick}
         >
@@ -61,7 +64,7 @@ const Button = ({
       );
     default:
       return (
-        <button onClick={onClick}>
+        <button type={type} onClick={onClick}>
           {startIcon && <img src={startIcon} alt="`${startIcon}-button`" />}
           {label}
         </button>
