@@ -50,6 +50,7 @@
 .reply-divider {
   width: 1px;
   border: 1px solid var(--neutral-4);
+  background-color: var(--neutral-4);
   margin: 0 1rem 0 0;
 }
 
