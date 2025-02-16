@@ -39,6 +39,7 @@ const ListComment = ({
                 <Comment
                   key={reply.createdAt}
                   data={reply}
+                  currentUser={currentUser}
                   replyingTo={reply.replyingTo}
                   isCurrentUser={reply.user.username === currentUser.username}
                   onClickReply={onClickReply}
@@ -64,6 +65,7 @@ const ListComment = ({
               <Comment
                 key={item.id}
                 data={item}
+                currentUser={currentUser}
                 isCurrentUser={hasReply}
                 onClickReply={onClickReply}
                 onDecreaseScore={onDecreaseScore}
