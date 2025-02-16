@@ -28,6 +28,14 @@ const CommentInput = ({
     [onSendComment]
   );
 
+  const handleFocus = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      const lengthOfInput = event.target.value.length;
+      return event.target.setSelectionRange(lengthOfInput, lengthOfInput);
+    },
+    []
+  );
+
   return (
     <>
       <div className="wrapper">
@@ -37,6 +45,8 @@ const CommentInput = ({
             className="comment-input"
             placeholder="Add a comment..."
             rows={5}
+            autoFocus={isReplying}
+            onFocus={handleFocus}
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />
