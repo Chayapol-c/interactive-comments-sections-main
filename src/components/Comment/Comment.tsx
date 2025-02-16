@@ -7,6 +7,7 @@ import iconDelete from '../../images/icon-delete.svg';
 import Button, { ButtonStyle, ButtonType } from '../Button/Button';
 import IBaseComment from '../../types/baseComment';
 import IUser from '../../types/user';
+import ModalDeleteComment from '../ModalDeleteComment/ModalDeleteComment';
 
 export interface CommentProps {
   data: IBaseComment;
@@ -32,6 +33,7 @@ const Comment = ({
   onDecreaseScore,
 }: CommentProps) => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [isOpenDeleteModal, setIsOpenDeleteModel] = useState<boolean>(false);
   const commentRelativeTime = useMemo(() => '2 weeks ago', [data.createdAt]);
 
   const [editComment, setEditComment] = useState<string>(
@@ -69,6 +71,13 @@ const Comment = ({
 
   return (
     <>
+      {isOpenDeleteModal && (
+        <ModalDeleteComment
+          isOpen={isOpenDeleteModal}
+          onClose={() => setIsOpenDeleteModel(false)}
+          onSubmit={() => handleDeleteComment()}
+        />
+      )}
       <div className="wrapper">
         {isCommentReplying && <div className="reply-divider"></div>}
         <div className="comment-container">
@@ -122,7 +131,7 @@ const Comment = ({
                     <Button
                       label="delete"
                       startIcon={iconDelete}
-                      onClick={() => handleDeleteComment()}
+                      onClick={() => setIsOpenDeleteModel(true)}
                       buttonStyle={ButtonStyle.DELETE}
                       buttonType={ButtonType.TEXT}
                     />
