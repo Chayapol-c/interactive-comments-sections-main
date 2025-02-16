@@ -5,6 +5,7 @@ import IComment from './types/comment';
 import { useCallback, useMemo, useState } from 'react';
 import IUser from './types/user';
 import CommentInput from './components/CommentInput/CommentInput';
+import IReply from './types/reply';
 
 function App() {
   const copyCommentList: IComment[] = [...data.comments];
@@ -21,11 +22,35 @@ function App() {
       username: string,
       operation: 'plus' | 'minus'
     ) => {
-      const editComment = commentList.find(
-        (comment) => comment.id === id && comment.user.username === username
-      );
+      const editComment = commentList.find((comment) => {
+        // TODO: implement multiple reply depth
+        if (comment.replies.length > 0) {
+          return comment.replies.find(
+            (reply) => reply.id === id && reply.user.username === username
+          );
+        }
+        return comment.id === id && comment.user.username === username;
+      });
+
       return prev.map((comment) => {
         if (!editComment) return comment;
+
+        let editReplies: IReply[] = comment.replies.map((reply) => {
+          if (reply.user.username === username) {
+            if (operation === 'plus') {
+              return { ...reply, score: reply.score + 1 };
+            }
+            if (operation === 'minus') {
+              return { ...reply, score: reply.score - 1 };
+            }
+          }
+          return reply;
+        });
+
+        if (editReplies.length > 0) {
+          return { ...editComment, replies: editReplies };
+        }
+
         if (comment === editComment) {
           if (operation === 'plus') {
             return { ...editComment, score: comment.score + 1 };
@@ -47,7 +72,9 @@ function App() {
     [setAddReplyingUserName]
   );
 
-  const handleSendReply = useCallback(() => {}, []);
+  const handleSendReply = useCallback((reply: string) => {
+    console.log(reply);
+  }, []);
 
   const handleIncreaseScore = useCallback(
     (id: number, username: string) => {

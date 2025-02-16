@@ -10,7 +10,7 @@ export interface ListCommentProps {
   currentUser: IUser;
   addReplyingUserName: string;
   onClickReply: (username: string) => void;
-  onSendReply: () => void;
+  onSendReply: (reply: string) => void;
   onEditComment?: () => void;
   onDeleteComment?: () => void;
   onIncreaseScore: (id: number, username: string) => void;
@@ -50,6 +50,7 @@ const ListComment = ({
                 {addReplyingUserName === reply.user.username && (
                   <CommentInput
                     currentUser={currentUser}
+                    replyingTo={reply.replyingTo}
                     isReplying
                     onSendComment={onSendReply}
                   />
