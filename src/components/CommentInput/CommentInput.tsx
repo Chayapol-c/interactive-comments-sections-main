@@ -2,6 +2,7 @@ import { FormEvent, memo, useCallback, useState } from 'react';
 import './CommentInput.css';
 import Button from '../Button/Button';
 import IUser from '../../types/user';
+import ButtonTestId from '../../constants/testId';
 
 export interface CommentInputProps {
   currentUser: IUser;
@@ -55,7 +56,11 @@ const CommentInput = ({
               className="current-user-img"
               src={`./src/${currentUser.image.png}`}
             />
-            <Button label="send" type="submit" />
+            <Button
+              label="send"
+              type="submit"
+              data-testId={ButtonTestId.SEND_COMMENT_BTN}
+            />
           </div>
         </form>
       </div>

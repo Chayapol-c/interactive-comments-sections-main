@@ -26,6 +26,7 @@ const Button = ({
   buttonStyle = ButtonStyle.PRIMARY,
   type = 'button',
   onClick,
+  ...restProp
 }: ButtonProps) => {
   const buttonClassStyle = useMemo(() => {
     switch (buttonStyle) {
@@ -46,6 +47,7 @@ const Button = ({
           type={type}
           onClick={onClick}
           className="button-container button-contain button-contain-primary"
+          {...restProp}
         >
           {/* {startIcon && <img src={startIcon} alt="`${startIcon}-button`" />} */}
           {label}
@@ -57,6 +59,7 @@ const Button = ({
           type={type}
           className={`button-container ${buttonClassStyle}`}
           onClick={onClick}
+          {...restProp}
         >
           {startIcon && <img src={startIcon} alt="`${startIcon}-button`" />}
           {label}
@@ -64,7 +67,7 @@ const Button = ({
       );
     default:
       return (
-        <button type={type} onClick={onClick}>
+        <button type={type} onClick={onClick} {...restProp}>
           {startIcon && <img src={startIcon} alt="`${startIcon}-button`" />}
           {label}
         </button>

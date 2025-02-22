@@ -8,6 +8,7 @@ import Button, { ButtonStyle, ButtonType } from '../Button/Button';
 import IBaseComment from '../../types/baseComment';
 import IUser from '../../types/user';
 import ModalDeleteComment from '../ModalDeleteComment/ModalDeleteComment';
+import ButtonTestId from '../../constants/testId';
 
 export interface CommentProps {
   data: IBaseComment;
@@ -125,7 +126,11 @@ const Comment = ({
             {isCurrentUser ? (
               <>
                 {isEditing ? (
-                  <Button label="update" onClick={() => handleEditComment()} />
+                  <Button
+                    label="update"
+                    onClick={() => handleEditComment()}
+                    data-testId={ButtonTestId.UPDATE_COMMENT_BTN}
+                  />
                 ) : (
                   <div className="button-group">
                     <Button
@@ -134,12 +139,14 @@ const Comment = ({
                       onClick={() => setIsOpenDeleteModel(true)}
                       buttonStyle={ButtonStyle.DELETE}
                       buttonType={ButtonType.TEXT}
+                      data-testId={ButtonTestId.DELETE_COMMENT_BTN}
                     />
                     <Button
                       label="edit"
                       startIcon={iconEdit}
                       onClick={() => handleClickEdit()}
                       buttonType={ButtonType.TEXT}
+                      data-testId={ButtonTestId.EDIT_COMMENT_BTN}
                     />
                   </div>
                 )}
@@ -150,6 +157,7 @@ const Comment = ({
                 startIcon={iconReply}
                 onClick={() => onClickReply(data.user.username)}
                 buttonType={ButtonType.TEXT}
+                data-testId={ButtonTestId.REPLY_BTN}
               />
             )}
           </div>

@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 import Counter from './Counter';
+import ButtonTestId from '../../constants/testId';
 
 describe('Counter component tests', () => {
   const mockOnPlus = vi.fn();
@@ -21,7 +22,7 @@ describe('Counter component tests', () => {
 
   it('should emit onclick plus button', async () => {
     render(<Counter count={0} onMinus={mockOnMinus} onPlus={mockOnPlus} />);
-    const buttonEl = screen.getByTestId('plus-btn');
+    const buttonEl = screen.getByTestId(ButtonTestId.PLUS_BTN);
 
     await userEvent.click(buttonEl);
 
@@ -31,7 +32,7 @@ describe('Counter component tests', () => {
 
   it('should emit onclick minus button', async () => {
     render(<Counter count={0} onMinus={mockOnMinus} onPlus={mockOnPlus} />);
-    const buttonEl = screen.getByTestId('minus-btn');
+    const buttonEl = screen.getByTestId(ButtonTestId.MINUS_BTN);
 
     await userEvent.click(buttonEl);
 
